@@ -19,7 +19,7 @@ extractTranscriptAnnotationsFromEnsembldb <- function(ensembldb, gene_names, tra
 }
 
 extractTranscriptAnnotationsFromUCSC <- function(orgdb, txdb, gene_names, transcript_ids = NULL){
-  gene_meta = AnnotationDbi::select(orgdb, keys = gene_names, columns = c("SYMBOL", "UCSCKG"), keytype = "SYMBOL")
+  gene_meta = AnnotationDbi::select(orgdb, keys = gene_names, columns = c("SYMBOL"), keytype = "SYMBOL")
   colnames(gene_meta) = c("gene_name", "transcript_id")
   
   if(!is.null(transcript_ids)){
